@@ -29,7 +29,7 @@ function changeLyrics(){
 
 
 class App extends Component {
-  function onButtonClick = () => {
+  function randomName = () => {
     counter++
   }
   render(){
@@ -37,7 +37,7 @@ class App extends Component {
     <div className="App">
       <header className="App-header">
         <h1>{changeLyrics()}</h1>
-        <button onClick={this.onButtonClick}>More Lyrics!</button>
+        <button onClick={this.randomName}>More Lyrics!</button>
       </header>
     </div>
   );
