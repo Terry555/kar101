@@ -25,7 +25,19 @@ class App extends Component {
       "I'd give you everything I've got for a little piece of mind",
       "I'd give you everything I've got for a little piece of mind"
     ],
-    beatlesLyrics: ""
+    beatlesLyrics: "",
+    lyricsFromFetch: []
+  }
+
+  componentDidMount(){
+    const ky = process.env.REACT_APP_API_KEY
+    fetch(`http://api.musixmatch.com/ws/1.1/tracking.url.get?apikey=${ky}?artist_name=katy%20perry%20&track_name=hot%20n%20cold`)
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        lyricsFromFetch: data
+      })
+    })
   }
 
   changeLyrics = () => {
@@ -34,7 +46,6 @@ class App extends Component {
 
 
   randomName = () => {
-    // event.preventDefault()
     this.setState({
       counter: this.state.counter+1
     })
