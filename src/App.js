@@ -26,7 +26,8 @@ class App extends Component {
       "I'd give you everything I've got for a little piece of mind"
     ],
     beatlesLyrics: "",
-    lyricsFromFetch: []
+    lyricsFromFetch: [],
+    timer: 0
   }
 
   componentDidMount(){
