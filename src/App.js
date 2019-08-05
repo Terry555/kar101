@@ -33,7 +33,17 @@ class App extends Component {
   componentDidMount(){
     const ky = process.env.REACT_APP_API_KEY
     // fetch(`http://api.musixmatch.com/ws/1.1/tracking.url.get?apikey=${ky}?artist_name=katy%20perry%20&track_name=hot%20n%20cold`)
-    fetch(`http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP`)
+    fetch(`http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP`, {
+      method: 'GET',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrer: 'no-referrer'
+    })
     .then(response => response.json())
     .then(data => {
       this.setState({
