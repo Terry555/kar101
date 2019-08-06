@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LyricContainer from './LyricContainer';
 import './App.css';
 
 
@@ -71,6 +72,7 @@ class App extends Component {
         <h1>{this.state.imSoTiredLyricArr[this.state.counter]}</h1>
         <button onClick={this.randomName}>More Lyrics!</button>
       </header>
+      <LyricContainer />
     </div>
   );
 }
