@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import LyricContainer from './LyricContainer';
 import './App.css';
 
-
 class App extends Component {
 
   state = {
@@ -32,9 +31,15 @@ class App extends Component {
   }
 
   componentDidMount(){
-    const ky = process.env.REACT_APP_API_KEY
+    const ky = process.env.REACT_APP_MUSIX_API_KEY
     // fetch(`http://api.musixmatch.com/ws/1.1/tracking.url.get?apikey=${ky}?artist_name=katy%20perry%20&track_name=hot%20n%20cold`)
-    fetch(`https://opentdb.com/api.php?amount=10&category=12`)
+    fetch(`https://api.musixmatch.com/ws/1.1/track.chart.get?apikey=${ky}&format=json`, {
+      mode: 'no-cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'text/plain'
+      }
+    })
     .then(response => response.json())
     .then(data => {
       console.log(data)
