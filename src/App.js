@@ -8,7 +8,8 @@ class App extends Component {
     this.state = {
       counter: 0,
       lyrics: ["I'm so tired I haven't slept a wink",
-              "I'm so tired my mind is on the brink"
+              "I'm so tired my mind is on the brink",
+              "I wonder should I get up and fix myself a drink?"
               ]
     }
   }
