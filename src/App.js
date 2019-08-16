@@ -9,7 +9,8 @@ class App extends Component {
       counter: 0,
       lyrics: ["I'm so tired I haven't slept a wink",
               "I'm so tired my mind is on the brink",
-              "I wonder should I get up and fix myself a drink?"
+              "I wonder should I get up and fix myself a drink?",
+              "no no no"
               ]
     }
   }
