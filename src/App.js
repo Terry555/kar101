@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LyricContainer from './LyricContainer';
+import Metronome from './Metronome';
 import './App.css';
 
 let variable = 0;
@@ -116,6 +117,7 @@ class App extends Component {
       <header className="App-header">
         <h1>{this.state.lyrics[this.state.counter]}</h1>
         <button onClick={this.handleStartLyrics}>More Lyrics!</button>
+        <Metronome />
       </header>
       <LyricContainer />
     </div>
