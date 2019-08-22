@@ -111,7 +111,7 @@ class App extends Component {
   }
 
   render(){
-    console.log(this.state)
+    console.log(this.state.counter)
   return (
     <div className="App">
       <header className="App-header">
