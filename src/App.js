@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import LyricContainer from './LyricContainer';
 import Metronome from './Metronome';
 import './App.css';
+import data from './data.json';
 
 let variable = 0;
 
 class App extends Component {
 
     state = {
+      name: 'Blink 182 - The Rock Show',
       counter: 0,
       lyrics: [
         "*Instrumental*",
@@ -26,6 +28,7 @@ class App extends Component {
         "Everything's better when she's around",
         "I can't wait till her parents go out of town",
         "I fell in love with the girl at the rock show",
+        "*Instrumental*",
         "When we said we were gonna move to Vegas",
         "I remember the look her mother gave us",
         "Seventeen without a purpose or direction",
@@ -53,29 +56,19 @@ class App extends Component {
         "(I'll never forget tonight) with the girl at the rock show"
       ],
         timeDelay: [
-          12000,
-          3000, 2000, 3000, 2000,
-          12000
+          12000, /* instrumental */
+          2800, 2100, 2400, 3100, /* first verse */
+          10000, /* instrumental */
+          2200, 2500, 2400, 2000, /* second verse */
+          2800, 2500, 2500, 2500, 2500, 3000, /* chorus */
+          9500, /* instrumental */
+          2500, 2500, 2600, 2300, /* third verse */
+          2500, 2500, 2500, 2500, 2500, 2800, /* chorus */
+          3700, 2500, 3600, 3700, 2700, 3000, /* bridge */
+          2500, 2500, 2500, 2500, 2500, 5900, /* chorus */
+          4900, 2900, 33000 /* outro */
         ]
   }
-
-  // "I'm so tired, I haven't slept a wink",
-  // "I'm so tired, my mind is on the brink",
-  // "I wonder should I get up and fix myself a drink? No no no",
-  // "I'm so tired, I don't know what to do",
-  // "I'm so tired, my mind is set on you",
-  // "I wonder should I call you but I know what you would do",
-  // "You say I'm putting you on, but it's no joke it's doing me harm",
-  // "You know I can't sleep, I can't stop my brain, you know it's three weeks, I'm going insane",
-  // "You know I'd give you everything I've got for a little piece of mind",
-  // "I'm so tired, I'm feeling so upset",
-  // "Although I'm so tired, I'll have another cigarette",
-  // "And curse Sir Walter Raleigh, he was such a stupid git",
-  // "You say I'm putting you on, but it's no joke it's doing me harm",
-  // "You know I can't sleep, I can't stop my brain, you know it's three weeks, I'm going insane",
-  // "You know I'd give you everything I've got for a little piece of mind",
-  // "I'd give you everything I've got for a little piece of mind",
-  // "I'd give you everything I've got for a little piece of mind"
 
 
   // componentDidMount(){
@@ -111,12 +104,17 @@ class App extends Component {
   }
 
   render(){
-    console.log(this.state.counter)
+    console.log(jsonResponse)
   return (
     <div className="App">
       <header className="App-header">
-        <h1>{this.state.lyrics[this.state.counter]}</h1>
+        <h1 style={{ color: `${this.state.counter%2==0 ? 'red' : 'yellow' }`}}>{this.state.lyrics[this.state.counter]}</h1>
         <button onClick={this.handleStartLyrics}>More Lyrics!</button>
+          <form>
+              <select>
+                <option>{this.state.name}</option>
+              </select>
+          </form>
         <Metronome />
       </header>
       <LyricContainer />
