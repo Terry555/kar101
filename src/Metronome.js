@@ -11,8 +11,9 @@ class Metronome extends Component {
     this.state = {
       playing: false,
       count: 0,
-      bpm: 100,
-      beatsPerMeasure: 4
+      bpm: this.props.bpm,
+      beatsPerMeasure: 4,
+      didTheyClickPlay: this.props.clickedPlay
     };
 
     this.click1 = new Audio(click1);
@@ -69,7 +70,10 @@ class Metronome extends Component {
     }));
   };
 
+
   render(){
+    console.log(this.props)
+    console.log(this.state)
     const { playing, bpm } = this.state;
 
   return (
