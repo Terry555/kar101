@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import LyricContainer from './LyricContainer';
 import Metronome from './Metronome';
 import './App.css';
@@ -12,8 +12,9 @@ class App extends Component {
       name: "",
       counter: 0,
       lyrics: [],
-      timeDelay: []
-  }
+      timeDelay: [],
+      bpm: 0
+    }
 
 
   // componentDidMount(){
@@ -54,6 +55,7 @@ class App extends Component {
       counter: data[event.target.value].counter,
       lyrics: data[event.target.value].lyrics,
       timeDelay: data[event.target.value].timeDelay,
+      bpm: data[event.target.value].bpm
     })
   }
 
@@ -69,7 +71,7 @@ class App extends Component {
                 })}
               </select>
           </form>
-        <Metronome />
+        <Metronome bpm={this.state.bpm} />
       </header>
       <LyricContainer />
     </div>
