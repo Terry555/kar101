@@ -9,28 +9,30 @@ let variable = 0;
 class App2 extends Component {
 
     state = {
-
+      lyricsFromFetch: []
     }
 
 
-  // componentDidMount(){
-  //   const ky = process.env.REACT_APP_MUSIX_API_KEY
-  //   // fetch(`http://api.musixmatch.com/ws/1.1/tracking.url.get?apikey=${ky}?artist_name=katy%20perry%20&track_name=hot%20n%20cold`)
-  //   fetch(`https://api.musixmatch.com/ws/1.1/track.chart.get?apikey=${ky}&format=json`, {
-  //     mode: 'no-cors',
-  //     headers: {
-  //       'Access-Control-Allow-Origin': '*',
-  //       'Content-Type': 'text/plain'
-  //     }
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     console.log(data)
-  //     // this.setState({
-  //     //   lyricsFromFetch: data
-  //     // })
-  //   })
-  // }
+  componentDidMount(){
+    const ky = process.env.REACT_APP_MUSIX_API_KEY
+    fetch(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&q_track=Barbed%20Wire&q_artist=Kendrick%20Lamar&apikey=${ky}`, {
+      // mode: 'no-cors',
+      // headers: {
+      // 'Access-Control-Allow-Origin': '*',
+      //   'Content-Type': 'text/plain'
+      // 'Accept': 'application/json',
+      // 'Content-Type': 'application/json'
+      // }
+    })
+    .then(response => response.slice(1).slice(0,-1).json())
+      // response.json())
+    .then(data => {
+      console.log(data)
+      // this.setState({
+      //   lyricsFromFetch: data
+      // })
+    })
+  }
 
 
   render(){
