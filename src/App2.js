@@ -15,7 +15,7 @@ class App2 extends Component {
 
   componentDidMount(){
     const ky = process.env.REACT_APP_MUSIX_API_KEY
-    fetch(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&q_track=Barbed%20Wire&q_artist=Kendrick%20Lamar&apikey=${ky}`, {
+    fetch(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=Barbed%20Wire&q_artist=Kendrick%20Lamar&apikey=${ky}`, {
       // mode: 'no-cors',
       // headers: {
       // 'Access-Control-Allow-Origin': '*',
@@ -24,7 +24,7 @@ class App2 extends Component {
       // 'Content-Type': 'application/json'
       // }
     })
-    .then(response => response.slice(1).slice(0,-1).json())
+    .then(response => response.json())
       // response.json())
     .then(data => {
       console.log(data)
