@@ -24,7 +24,7 @@ class App2 extends Component {
       // 'Content-Type': 'application/json'
       // }
     })
-    .then(response => response.json())
+    .then(response => console.log(response.json()))
       // response.json())
     .then(data => {
       console.log(data)
