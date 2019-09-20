@@ -16,27 +16,6 @@ class App extends Component {
       bpm: 0
     }
 
-
-  // componentDidMount(){
-  //   const ky = process.env.REACT_APP_MUSIX_API_KEY
-  //   // fetch(`http://api.musixmatch.com/ws/1.1/tracking.url.get?apikey=${ky}?artist_name=katy%20perry%20&track_name=hot%20n%20cold`)
-  //   fetch(`https://api.musixmatch.com/ws/1.1/track.chart.get?apikey=${ky}&format=json`, {
-  //     mode: 'no-cors',
-  //     headers: {
-  //       'Access-Control-Allow-Origin': '*',
-  //       'Content-Type': 'text/plain'
-  //     }
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     console.log(data)
-  //     // this.setState({
-  //     //   lyricsFromFetch: data
-  //     // })
-  //   })
-  // }
-
-
   timer = () => {
     this.setState({
       counter: (this.state.counter)+1
@@ -60,6 +39,7 @@ class App extends Component {
   }
 
   render(){
+    console.log(this.state)
   return (
     <div className="App">
       <header className="App-header">
