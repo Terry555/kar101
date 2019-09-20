@@ -3,6 +3,7 @@ import LyricContainer from './LyricContainer';
 import Metronome from './Metronome';
 import './App.css';
 import data from './data.json';
+import fetchJsonp from "fetch-jsonp";
 
 let variable = 0;
 
@@ -15,7 +16,8 @@ class App2 extends Component {
 
   componentDidMount(){
     const ky = process.env.REACT_APP_MUSIX_API_KEY
-    fetch(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=Barbed%20Wire&q_artist=Kendrick%20Lamar&apikey=${ky}`, {
+    /*fetch(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callfunc&q_track=Barbed%20Wire&q_artist=Kendrick%20Lamar&apikey=${ky}`, {
+      // callback: 'callfunc'
       // mode: 'no-cors',
       // headers: {
       // 'Access-Control-Allow-Origin': '*',
@@ -24,15 +26,31 @@ class App2 extends Component {
       // 'Content-Type': 'application/json'
       // }
     })
-    .then(response => console.log(response.json()))
+    .then(response => response.text())
       // response.json())
     .then(data => {
       console.log(data)
       // this.setState({
       //   lyricsFromFetch: data
       // })
+    })*/
+
+    fetchJsonp(`https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callfunc&q_track=Barbed%20Wire&q_artist=Kendrick%20Lamar&apikey=${ky}`)
+    .then(function(response){
+      return response.json()
     })
+    .then(function(json){
+      console.log(json)
+      //.message.body.lyrics.lyrics_body)
+    })
+
+
   }
+
+  callfunc = function(data){
+    console.log("callback function" + data)
+  }
+
 
 
   render(){
