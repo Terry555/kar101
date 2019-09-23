@@ -36,6 +36,12 @@ class Metronome extends Component {
     }
   };
 
+  checkForProps = () => {
+    if (this.state.didTheyClickPlay) {
+      this.startStop();
+    }
+  }
+
   startStop = () => {
     if (this.state.playing) {
       clearInterval(this.timer);
@@ -72,6 +78,7 @@ class Metronome extends Component {
 
 
   render(){
+    console.log(this.props)
     const { playing, bpm } = this.state;
 
   return (

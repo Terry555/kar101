@@ -9,11 +9,12 @@ let variable = 0;
 class App extends Component {
 
     state = {
-      name: "",
-      counter: 0,
-      lyrics: [],
-      timeDelay: [],
-      bpm: 0
+      name: data[0].name,
+      counter: data[0].counter,
+      lyrics: data[0].lyrics,
+      timeDelay: data[0].timeDelay,
+      bpm: data[0].bpm,
+      isClicked: false
     }
 
   timer = () => {
@@ -28,6 +29,13 @@ class App extends Component {
     variable++
   }
 
+  handleClick = () => {
+    this.setState({
+      isClicked: true
+    })
+    this.handleStartLyrics()
+  }
+
   handleSongChange = (event) => {
     this.setState({
       name: data[event.target.value].name,
@@ -39,19 +47,19 @@ class App extends Component {
   }
 
   render(){
-    console.log(this.state)
+    console.log(this.state.isClicked)
   return (
     <div className="App">
       <header className="App-header">
         <h1 style={{ color: `${this.state.counter%2===0 ? 'red' : 'yellow' }`}}>{this.state.lyrics[this.state.counter]}</h1>
-        <button onClick={this.handleStartLyrics}>Play The Song!</button>
+        <button onClick={this.handleClick}>Play The Song!</button>
           <form>
               <select defaultValue={data[1].name} onChange={this.handleSongChange}> {data.map((song, idx) => {
                   return <option value={song.id} key={idx}>{song.name}</option>
                 })}
               </select>
           </form>
-        <Metronome bpm={this.state.bpm} />
+        <Metronome bpm={this.state.bpm} clickedPlay={this.state.isClicked}/>
       </header>
       <LyricContainer />
     </div>
