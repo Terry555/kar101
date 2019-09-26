@@ -44,7 +44,8 @@ class Metronome extends Component {
 
   startStop = () => {
     if (this.state.playing) {
-      clearInterval(this.timer);
+
+     clearInterval(this.timer);
       this.setState({
         playing: false
       });
