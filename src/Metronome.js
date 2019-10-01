@@ -77,9 +77,18 @@ class Metronome extends Component {
     }));
   };
 
+  componentWillReceiveProps(newProps){
+    if (this.props.clickedPlay != newProps.clickedPlay){
+      this.startStop();
+      // this.setState({
+      //   didTheyClickPlay: newProps.clickedPlay
+      // })
+    }
+  }
+
 
   render(){
-    console.log(this.props)
+    console.log(this.state)
     const { playing, bpm } = this.state;
 
   return (
