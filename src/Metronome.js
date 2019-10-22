@@ -80,21 +80,21 @@ class Metronome extends Component {
   componentWillReceiveProps(newProps){
     if (this.props.clickedPlay != newProps.clickedPlay){
       this.startStop();
-      // this.setState({
-      //   didTheyClickPlay: newProps.clickedPlay
-      // })
     }
+    this.setState({
+      bpm: newProps.bpm
+    })
   }
 
 
   render(){
-    console.log(this.props.bpm)
     const { playing, bpm } = this.state;
+    console.log(this.state.bpm)
 
   return (
     <div className="metronome">
       <div className="bpm-slider">
-        <div>{bpm} BPM</div>
+        <div>{this.state.bpm} BPM</div>
         <input
             type="range"
             min="60"
