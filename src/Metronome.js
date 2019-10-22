@@ -88,7 +88,7 @@ class Metronome extends Component {
 
 
   render(){
-    console.log(this.state)
+    console.log(this.props.bpm)
     const { playing, bpm } = this.state;
 
   return (
